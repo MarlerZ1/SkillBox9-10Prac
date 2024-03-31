@@ -11,7 +11,16 @@ public class Weightlessness : MonoBehaviour
         if (rb)
         {
             rb.useGravity = false;
-            rb.velocity = Vector3.zero;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+
+        if (rb)
+        {
+            rb.useGravity = true;
         }
     }
 }
